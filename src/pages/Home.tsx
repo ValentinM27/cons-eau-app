@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Typography, useMediaQuery } from "@mui/material";
 
 import Logo from "@assets/logo.png";
 import MainBg from "@assets/main.jpg";
@@ -12,14 +12,17 @@ export const Home = () => {
 };
 
 const Main = () => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
   return (
     <Box
       sx={{
         display: "flex",
+        flexDirection: isMobile ? "column" : "row",
       }}
     >
       <MainLeft />
-      <MainRight />
+      <MainRight isMobile={isMobile} />
     </Box>
   );
 };
@@ -59,12 +62,12 @@ const MainLeft = () => {
       </Box>
 
       <Box sx={{ flex: 3 }}>
-        <Typography variant="h5">
+        <Typography variant="h5" sx={{ textAlign: "justify" }}>
           Simplifiez la gestion de votre consommation d'eau avec notre
           application intuitive.
         </Typography>
         <br />
-        <Typography variant="h5">
+        <Typography variant="h5" sx={{ textAlign: "justify" }}>
           Saisissez facilement vos relevés de consommation et découvrez des
           graphiques détaillés pour une vue concrète de votre utilisation d'eau
           au fil du temps.
@@ -94,11 +97,11 @@ const MainLeft = () => {
   );
 };
 
-const MainRight = () => {
+const MainRight = ({ isMobile }: { isMobile: boolean }) => {
   return (
     <Box
       sx={{
-        flex: 1,
+        flex: isMobile ? null : 1,
         height: "100vh",
         backgroundImage: `url(${MainBg})`,
         backgroundSize: "cover",
