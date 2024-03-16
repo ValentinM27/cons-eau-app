@@ -43,6 +43,7 @@ const UserForm = (theme: Theme) => {
         background: theme.palette.background.default,
         maxWidth: "480px",
         width: "95%",
+        margin: "0 .25rem",
         padding: "1rem",
         borderRadius: "5px",
       }}

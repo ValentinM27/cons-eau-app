@@ -89,7 +89,7 @@ const MainLeft = () => {
           color="primary"
           sx={{
             fontSize: "1.25rem",
-            borderRadius: "50px",
+            borderRadius: "5px",
             width: "100%",
           }}
           onClick={() => navigate("login")}
