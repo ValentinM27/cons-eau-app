@@ -2,6 +2,7 @@ import { Box, Button, Typography, useMediaQuery } from "@mui/material";
 
 import Logo from "@assets/logo.png";
 import MainBg from "@assets/main.jpg";
+import { useLocation } from "wouter";
 
 export const Home = () => {
   return (
@@ -28,6 +29,8 @@ const Main = () => {
 };
 
 const MainLeft = () => {
+  const [, navigate] = useLocation();
+
   return (
     <Box
       sx={{
@@ -89,8 +92,9 @@ const MainLeft = () => {
             borderRadius: "50px",
             width: "100%",
           }}
+          onClick={() => navigate("login")}
         >
-          Enregister mon premier relevé !
+          Enregister un relevé !
         </Button>
       </Box>
     </Box>
